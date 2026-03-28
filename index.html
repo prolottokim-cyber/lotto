@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <title>깍두기 회차 보기</title>
+  <style>
+    body { font-family: Arial; background:#f1f5f9; padding:20px; }
+    .box { background:white; padding:20px; border-radius:15px; margin-bottom:20px; }
+    input { padding:10px; font-size:16px; }
+    button { padding:10px 20px; background:black; color:white; border:none; border-radius:10px; cursor:pointer; }
+    img { max-width:100%; margin-top:20px; border-radius:10px; }
+  </style>
+</head>
+<body>
+
+<div class="box">
+  <h2>깍두기 회차 보기</h2>
+  <input id="round" placeholder="1218 입력">
+  <button onclick="showImage()">보기</button>
+</div>
+
+<div class="box" id="result">
+  결과가 여기에 표시됩니다
+</div>
+
+<script>
+const images = {
+  "1218": "1218.png",
+  "1217": "1217.png",
+  "1216": "1216.png"
+};
+
+function showImage() {
+  const r = document.getElementById('round').value.trim();
+  const result = document.getElementById('result');
+
+  if(images[r]){
+    result.innerHTML = `<img src="${images[r]}">`;
+  } else {
+    result.innerHTML = "이미지 없음";
+  }
+}
+</script>
+
+</body>
+</html>
