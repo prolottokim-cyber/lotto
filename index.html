@@ -2,21 +2,26 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
-  <title>깍두기 회차 보기</title>
+  <title>회차 보기</title>
   <style>
     body { font-family: Arial; background:#f1f5f9; padding:20px; }
     .box { background:white; padding:20px; border-radius:15px; margin-bottom:20px; }
     input { padding:10px; font-size:16px; }
-    button { padding:10px 20px; background:black; color:white; border:none; border-radius:10px; cursor:pointer; }
+    button { padding:10px 20px; background:black; color:white; border:none; border-radius:10px; cursor:pointer; margin-right:10px; }
     img { max-width:100%; margin-top:20px; border-radius:10px; }
   </style>
 </head>
 <body>
 
 <div class="box">
-  <h2>깍두기 회차 보기</h2>
+  <h2>깍두기 회차 보기 / 4주멸 회차 보기</h2>
   <input id="round" placeholder="1218 입력">
-  <button onclick="showImage()">보기</button>
+  <br><br>
+  <div style="display:flex; gap:10px; align-items:center;">
+    <button onclick="showKkakdugi()">깍두기 회차 보기</button>
+    <button onclick="show4week()">4주멸 회차 보기</button>
+  </div>
+  
 </div>
 
 <div class="box" id="result">
@@ -24,20 +29,38 @@
 </div>
 
 <script>
-const images = {
-  "1218": "1218.png",
-  "1217": "1217.png",
-  "1216": "1216.png"
+// 깍두기 이미지
+const kkakdugiImages = {
+  "1218": "./1218.png",
+  "1217": "./1217.png",
+  "1216": "./1216.png"
 };
 
-function showImage() {
+// 4주멸 이미지
+const week4Images = {
+  "1218": "./4week1218.png",
+  "1217": "./4week1217.png"
+};
+
+function showKkakdugi() {
   const r = document.getElementById('round').value.trim();
   const result = document.getElementById('result');
 
-  if(images[r]){
-    result.innerHTML = `<img src="${images[r]}">`;
+  if(kkakdugiImages[r]){
+    result.innerHTML = `<img src="${kkakdugiImages[r]}">`;
   } else {
-    result.innerHTML = "이미지 없음";
+    result.innerHTML = "깍두기 이미지 없음";
+  }
+}
+
+function show4week() {
+  const r = document.getElementById('round').value.trim();
+  const result = document.getElementById('result');
+
+  if(week4Images[r]){
+    result.innerHTML = `<img src="${week4Images[r]}">`;
+  } else {
+    result.innerHTML = "4주멸 이미지 없음";
   }
 }
 </script>
